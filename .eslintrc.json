@@ -30,6 +30,7 @@
     "no-console": 0,
     "space-before-function-paren": ["error", "never"],
     "no-multi-spaces": ["error", { "exceptions": { "ImportDeclaration": true } }],
-    "no-multi-spaces": ["error", { "exceptions": { "VariableDeclarator": true } }]
+    "no-multi-spaces": ["error", { "exceptions": { "VariableDeclarator": true } }],
+    "func-names": 0
   }
 }

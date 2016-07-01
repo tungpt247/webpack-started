@@ -1,3 +1,4 @@
+require('babel-polyfill')
 const path           = require('path')
 const webpack        = require('webpack')
 const merge          = require('webpack-merge')
@@ -5,12 +6,17 @@ const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin
 const env            = process.env.WEBPACK_ENV
 
 const config = {
-  entry: './src/index.js',
+  entry: [
+    'babel-polyfill',
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server',
+    './src/index.js'
+  ],
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/assets/',
-    filename: './dist/bundle.js'
+    publicPath: '/',
+    filename: 'bundle.js'
   },
   module: {
     loaders: [
@@ -32,7 +38,11 @@ const config = {
 
 if (env === 'start') {
   module.exports = merge(config, {
-    watch: true
+    watch: true,
+    plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin()
+    ]
   })
 }
 

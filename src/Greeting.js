@@ -1,6 +1,10 @@
-export default class Greeting {
-  hello() {
-    console.log('Hello world!')
-    return 'Hello world!'
+import React, { Component } from 'react'
+
+class Greeting extends Component {
+    render() {
+      return (
+        <div>I'm here!</div>
+      )
   }
 }
+export default Greeting

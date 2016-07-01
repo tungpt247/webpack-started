@@ -1,6 +1,5 @@
-import Greeting from './Greeting'
+import React from 'react'
+import {render} from 'react-dom'
+import App from './App'
 
-console.log('Getting started!')
-
-const greeting = new Greeting()
-greeting.hello()
+render(<App />, document.getElementById('root'))
